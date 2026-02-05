@@ -1,10 +1,12 @@
 # @apvee/spfx-actionable-provisioning
 
-Schema-first provisioning engine for SharePoint, built on PnPjs and Zod.
+Schema-first provisioning engine for SPFx, built on PnPjs and Zod.
 
 The repository contains:
 - A generic provisioning engine (DFS execution + tracing + permissions preflight)
 - A SharePoint action catalog (sites, lists, fields) designed to run from SPFx
+
+![@apvee/spfx-actionable-provisioning demo](./docs/demo.gif)
 
 ## Documentation
 

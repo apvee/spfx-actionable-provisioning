@@ -2,7 +2,9 @@
 
 > **Schema-first provisioning for SharePoint Framework**
 
-This library provides a powerful, type-safe provisioning engine for SharePoint, built on [PnPjs](https://pnp.github.io/pnpjs/) v4 and [Zod](https://zod.dev/) v4. It enables declarative site and list provisioning with built-in compliance checking and a ready-to-use UI for SPFx web parts.
+This library provides a powerful, type-safe provisioning engine for SPFx, built on [PnPjs](https://pnp.github.io/pnpjs/) v4 and [Zod](https://zod.dev/) v4. It enables declarative site and list provisioning with built-in compliance checking and a ready-to-use UI for SPFx web parts.
+
+![@apvee/spfx-actionable-provisioning demo](./demo.gif)
 
 ## Overview
 
