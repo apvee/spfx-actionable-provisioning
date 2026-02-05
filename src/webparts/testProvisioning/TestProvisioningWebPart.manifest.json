@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b7bc88c1-baa7-445d-b226-e6c6b5feb474",
+  "alias": "TestProvisioningWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Advanced" },
+    "title": { "default": "Test WebPart Provisioning" },
+    "description": { "default": "Test SPFx Provisioning" },
+    "officeFabricIconFontName": "TestBeaker",
+    "properties": {
+      "description": "Minimal host to test the new provisioning dialog"
+    }
+  }]
+}
