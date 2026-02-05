@@ -48,7 +48,7 @@ if (nesting.length > 0) {
                     const contents: ConfigJson = JSON.parse(config);
 
                     if (contents?.localizedResources && !contents.localizedResources.SPFxProvisioningUIStrings) {
-                        contents.localizedResources.SPFxProvisioningUIStrings = 'node_modules/@apvee/spfx-actionable-provisioning/provisioning-ui/loc/{locale}.js';
+                        contents.localizedResources.SPFxProvisioningUIStrings = 'node_modules/@apvee/spfx-actionable-provisioning/lib/provisioning-ui/loc/{locale}.js';
 
                         // Update the file
                         fs.writeFileSync(fileLoc, JSON.stringify(contents, null, 2));

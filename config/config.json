@@ -13,7 +13,6 @@
   },
   "externals": {},
   "localizedResources": {
-    "SPFxProvisioningUIStrings": "lib/provisioning-ui/loc/{locale}.js",
-    "TestProvisioningWebPartStrings": "lib/webparts/testProvisioning/loc/{locale}.js"
+    "SPFxProvisioningUIStrings": "lib/provisioning-ui/loc/{locale}.js"
   }
 }

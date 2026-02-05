@@ -8,7 +8,6 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
-import * as strings from 'TestProvisioningWebPartStrings';
 import TestProvisioning from './components/TestProvisioning';
 import { ITestProvisioningProps } from './components/ITestProvisioningProps';
 import { PropertyPaneProvisioningField, PropertyPaneSiteSelectorField } from '../../provisioning-ui/propertyPaneFields';
@@ -94,29 +93,29 @@ export default class TestProvisioningWebPart extends BaseClientSideWebPart<ITest
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: "Settings for the Test Provisioning Web Part"
           },
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: "Settings",
               groupFields: [
                 PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                  label: "Description"
                 })
               ]
             },
             {
-              groupName: strings.ProvisioningGroupName,
+              groupName: "Provisioning",
               groupFields: [
                 PropertyPaneSiteSelectorField('provisioningSiteUrl', {
-                  label: strings.ProvisioningSiteUrlLabel,
+                  label: "Provisioning Site URL",
                   context: this.context,
                   value: this.properties.provisioningSiteUrl,
                   appearance: 'filled'
                 }),
                 PropertyPaneProvisioningField('propertyPaneLastProvisioningState', {
                   context: this.context,
-                  label: strings.TemplateAppliedStateLabel,
+                  label: "Template Applied State",
                   provisioningActionPlan: provisioningPlan,
                   deprovisioningActionPlan: deprovisioningPlan,
                   targetSiteUrl: this.properties.provisioningSiteUrl,
