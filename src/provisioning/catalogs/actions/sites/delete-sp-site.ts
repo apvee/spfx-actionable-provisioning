@@ -66,7 +66,7 @@ export class DeleteSPSiteAction extends ActionDefinition<
    * 
    * Note: Group-connected sites require M365 Group deletion instead.
    */
-  async checkPermissions(
+  override async checkPermissions(
     ctx: SPRuntimeContext<DeleteSPSitePayload>
   ): Promise<PermissionCheckResult> {
     const spfi = ctx.scopeIn.spfi;
@@ -132,7 +132,7 @@ export class DeleteSPSiteAction extends ActionDefinition<
    * Uses PnPjs Site.delete() to remove the site collection.
    * Group-connected sites will throw an error with guidance to delete the M365 Group instead.
    */
-  async handler(
+  override async handler(
     ctx: SPRuntimeContext<DeleteSPSitePayload>
   ): Promise<SPActionResult> {
     const { siteUrl } = ctx.action.payload;
@@ -202,7 +202,7 @@ export class DeleteSPSiteAction extends ActionDefinition<
     };
   }
 
-  async checkCompliance(
+  override async checkCompliance(
     ctx: ComplianceRuntimeContext<SPScope, DeleteSPSitePayload>
   ): Promise<ComplianceActionCheckResult<SPScope>> {
     const spfi = ctx.scopeIn.spfi;

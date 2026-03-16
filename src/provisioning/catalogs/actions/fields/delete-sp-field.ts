@@ -37,7 +37,7 @@ export class DeleteSPFieldAction extends ActionDefinition<
     readonly verb = "deleteSPField";
     readonly actionSchema = deleteSPFieldSchema;
 
-    async handler(ctx: SPRuntimeContext<DeleteSPFieldPayload>): Promise<SPActionResult> {
+    override async handler(ctx: SPRuntimeContext<DeleteSPFieldPayload>): Promise<SPActionResult> {
         const payload = ctx.action.payload;
         const resource = payload.fieldName ?? payload.fieldId ?? "field";
 
@@ -106,7 +106,7 @@ export class DeleteSPFieldAction extends ActionDefinition<
         };
     }
 
-    async checkCompliance(
+    override async checkCompliance(
         ctx: ComplianceRuntimeContext<SPScope, DeleteSPFieldPayload>
     ): Promise<ComplianceActionCheckResult<SPScope>> {
         const payload = ctx.action.payload;

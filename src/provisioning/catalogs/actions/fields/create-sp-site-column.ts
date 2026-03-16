@@ -38,7 +38,7 @@ export class CreateSPSiteColumnAction extends ActionDefinition<
     readonly verb = "createSPSiteColumn";
     readonly actionSchema = createSPSiteColumnSchema;
 
-    async handler(ctx: SPRuntimeContext<CreateSPSiteColumnPayload>): Promise<SPActionResult> {
+    override async handler(ctx: SPRuntimeContext<CreateSPSiteColumnPayload>): Promise<SPActionResult> {
         return handleFieldCreation({
             def: ctx.action.payload,
             scopeIn: ctx.scopeIn,
@@ -46,7 +46,7 @@ export class CreateSPSiteColumnAction extends ActionDefinition<
         });
     }
 
-    async checkCompliance(
+    override async checkCompliance(
         ctx: ComplianceRuntimeContext<SPScope, CreateSPSiteColumnPayload>
     ): Promise<ComplianceActionCheckResult<SPScope>> {
         return checkFieldCompliance(ctx);

@@ -64,7 +64,7 @@ export class DeleteSPListAction extends ActionDefinition<
    * Resolves the target web URL (payload → scope → SPFI site URL) and runs a best-effort
    * permission probe for `ManageLists`.
    */
-  async checkPermissions(
+  override async checkPermissions(
     ctx: SPRuntimeContext<DeleteSPListPayload>
   ): Promise<PermissionCheckResult> {
     const scopeIn = ctx.scopeIn;
@@ -93,7 +93,7 @@ export class DeleteSPListAction extends ActionDefinition<
    * - If the list doesn't exist, the action returns a "skipped" result (no throw).
    * - If it exists, it is recycled by default.
    */
-  async handler(
+  override async handler(
     ctx: SPRuntimeContext<DeleteSPListPayload>
   ): Promise<SPActionResult> {
     const scopeIn = ctx.scopeIn;
@@ -146,7 +146,7 @@ export class DeleteSPListAction extends ActionDefinition<
     };
   }
 
-  async checkCompliance(
+  override async checkCompliance(
     ctx: ComplianceRuntimeContext<SPScope, DeleteSPListPayload>
   ): Promise<ComplianceActionCheckResult<SPScope>> {
     const spfi = ctx.scopeIn.spfi;

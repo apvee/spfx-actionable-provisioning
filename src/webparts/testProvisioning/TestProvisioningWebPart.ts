@@ -69,26 +69,26 @@ export default class TestProvisioningWebPart extends BaseClientSideWebPart<ITest
     ReactDom.render(element, this.domElement);
   }
 
-  protected onInit(): Promise<void> {
+  protected override onInit(): Promise<void> {
     this.ensurePropertiesMigrated();
     return Promise.resolve();
   }
 
-  protected onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
+  protected override onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
     if (!currentTheme) {
       return;
     }
   }
 
-  protected onDispose(): void {
+  protected override onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
 
-  protected get dataVersion(): Version {
+  protected override get dataVersion(): Version {
     return Version.parse('1.0');
   }
 
-  protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
+  protected override getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
         {

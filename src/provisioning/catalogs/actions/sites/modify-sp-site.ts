@@ -64,7 +64,7 @@ export class ModifySPSiteAction extends ActionDefinition<
      * Verifies the user has ManageWeb permission on the target site.
      * Note: permission checks are intentionally side-effect free (no scope mutation).
      */
-    async checkPermissions(
+    override async checkPermissions(
         ctx: SPRuntimeContext<ModifySPSitePayload>
     ): Promise<PermissionCheckResult> {
         const scopeIn = ctx.scopeIn;
@@ -117,7 +117,7 @@ export class ModifySPSiteAction extends ActionDefinition<
      * Updates site/web properties (title, description) and propagates
      * PnPjs Site/Web handles to child actions via scopeDelta.
      */
-    async handler(
+    override async handler(
         ctx: SPRuntimeContext<ModifySPSitePayload>
     ): Promise<SPActionResult> {
         const { siteUrl: payloadSiteUrl } = ctx.action.payload;
@@ -191,7 +191,7 @@ export class ModifySPSiteAction extends ActionDefinition<
         };
     }
 
-    async checkCompliance(
+    override async checkCompliance(
         ctx: ComplianceRuntimeContext<SPScope, ModifySPSitePayload>
     ): Promise<ComplianceActionCheckResult<SPScope>> {
         const spfi = ctx.scopeIn.spfi;

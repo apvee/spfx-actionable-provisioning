@@ -70,7 +70,7 @@ export class CreateSPListAction extends ActionDefinition<
    * Resolves the target web URL (payload → scope → SPFI site URL) and runs a best-effort
    * permission probe for `ManageLists`.
    */
-  async checkPermissions(
+  override async checkPermissions(
     ctx: SPRuntimeContext<CreateSPListPayload>
   ): Promise<PermissionCheckResult> {
     const scopeIn = ctx.scopeIn;
@@ -89,7 +89,7 @@ export class CreateSPListAction extends ActionDefinition<
     return probeManageListsPermission(web, effectiveWebUrl);
   }
 
-  async checkCompliance(
+  override async checkCompliance(
     ctx: ComplianceRuntimeContext<SPScope, CreateSPListPayload>
   ): Promise<ComplianceActionCheckResult<SPScope>> {
     const spfi = ctx.scopeIn.spfi;
@@ -138,7 +138,7 @@ export class CreateSPListAction extends ActionDefinition<
    * 1) Create list using `listName` as Title (to get stable RootFolder/Name)
    * 2) Update the list Title to the user-friendly `title`
    */
-  async handler(
+  override async handler(
     ctx: SPRuntimeContext<CreateSPListPayload>
   ): Promise<SPActionResult> {
     const scopeIn = ctx.scopeIn;

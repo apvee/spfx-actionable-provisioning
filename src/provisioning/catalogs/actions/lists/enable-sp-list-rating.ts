@@ -49,7 +49,7 @@ export class EnableSPListRatingAction extends ActionDefinition<
         return ratingType === "Stars" ? 1 : 2;
     }
 
-    async handler(ctx: SPRuntimeContext<EnableSPListRatingPayload>): Promise<SPActionResult> {
+    override async handler(ctx: SPRuntimeContext<EnableSPListRatingPayload>): Promise<SPActionResult> {
         const web = ctx.scopeIn.web;
         const list = ctx.scopeIn.list;
 
@@ -112,7 +112,7 @@ export class EnableSPListRatingAction extends ActionDefinition<
         }
     }
 
-    async checkCompliance(
+    override async checkCompliance(
         ctx: ComplianceRuntimeContext<SPScope, EnableSPListRatingPayload>
     ): Promise<ComplianceActionCheckResult<SPScope>> {
         const spfi = ctx.scopeIn.spfi;

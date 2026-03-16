@@ -52,7 +52,7 @@ export class ModifySPFieldAction extends ActionDefinition<
     readonly verb = "modifySPField";
     readonly actionSchema = modifySPFieldSchema;
 
-    async handler(ctx: SPRuntimeContext<ModifySPFieldPayload>): Promise<SPActionResult> {
+    override async handler(ctx: SPRuntimeContext<ModifySPFieldPayload>): Promise<SPActionResult> {
         const def = ctx.action.payload;
         const resource = def.fieldName;
 
@@ -401,7 +401,7 @@ export class ModifySPFieldAction extends ActionDefinition<
         };
     }
 
-    async checkCompliance(
+    override async checkCompliance(
         ctx: ComplianceRuntimeContext<SPScope, ModifySPFieldPayload>
     ): Promise<ComplianceActionCheckResult<SPScope>> {
         const def = ctx.action.payload;

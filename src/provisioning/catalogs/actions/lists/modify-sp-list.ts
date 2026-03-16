@@ -67,7 +67,7 @@ export class ModifySPListAction extends ActionDefinition<
    * Resolves the target web URL (payload → scope → SPFI site URL) and runs a best-effort
    * permission probe for `ManageLists`.
    */
-  async checkPermissions(
+  override async checkPermissions(
     ctx: SPRuntimeContext<ModifySPListPayload>
   ): Promise<PermissionCheckResult> {
     const scopeIn = ctx.scopeIn;
@@ -96,7 +96,7 @@ export class ModifySPListAction extends ActionDefinition<
    * - If the list doesn't exist, the action returns a "skipped" result (no throw).
    * - If it exists, it updates the provided properties via `list.update()`.
    */
-  async handler(
+  override async handler(
     ctx: SPRuntimeContext<ModifySPListPayload>
   ): Promise<SPActionResult> {
     const scopeIn = ctx.scopeIn;
@@ -171,7 +171,7 @@ export class ModifySPListAction extends ActionDefinition<
     };
   }
 
-  async checkCompliance(
+  override async checkCompliance(
     ctx: ComplianceRuntimeContext<SPScope, ModifySPListPayload>
   ): Promise<ComplianceActionCheckResult<SPScope>> {
     const spfi = ctx.scopeIn.spfi;
