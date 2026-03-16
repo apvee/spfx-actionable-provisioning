@@ -37,7 +37,7 @@ export class AddSPFieldAction extends ActionDefinition<
     readonly verb = "addSPField";
     readonly actionSchema = addSPFieldSchema;
 
-    async handler(ctx: SPRuntimeContext<AddSPFieldPayload>): Promise<SPActionResult> {
+    override async handler(ctx: SPRuntimeContext<AddSPFieldPayload>): Promise<SPActionResult> {
         return handleFieldCreation({
             def: ctx.action.payload,
             scopeIn: ctx.scopeIn,
@@ -45,7 +45,7 @@ export class AddSPFieldAction extends ActionDefinition<
         });
     }
 
-    async checkCompliance(
+    override async checkCompliance(
         ctx: ComplianceRuntimeContext<SPScope, AddSPFieldPayload>
     ): Promise<ComplianceActionCheckResult<SPScope>> {
         return checkFieldCompliance(ctx);

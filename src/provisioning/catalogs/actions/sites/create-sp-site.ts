@@ -79,7 +79,7 @@ export class CreateSPSiteAction extends ActionDefinition<
      * - Assumes if context works, user has sufficient permissions
      * - Note: Does not perform deep tenant admin check to avoid extra API calls
      */
-    async checkPermissions(
+    override async checkPermissions(
         ctx: SPRuntimeContext<CreateSPSitePayload>
     ): Promise<PermissionCheckResult> {
         const { siteType } = ctx.action.payload;
@@ -97,7 +97,7 @@ export class CreateSPSiteAction extends ActionDefinition<
         };
     }
 
-    async checkCompliance(
+    override async checkCompliance(
         ctx: ComplianceRuntimeContext<SPScope, CreateSPSitePayload>
     ): Promise<ComplianceActionCheckResult<SPScope>> {
         const spfi = ctx.scopeIn.spfi;
@@ -149,7 +149,7 @@ export class CreateSPSiteAction extends ActionDefinition<
     * - `site`: PnPjs Site handle bound to the created site
     * - `web`: PnPjs Web handle bound to the created site's root web
      */
-    async handler(
+    override async handler(
         ctx: SPRuntimeContext<CreateSPSitePayload>
     ): Promise<SPActionResult> {
         const payload = ctx.action.payload;

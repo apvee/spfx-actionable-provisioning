@@ -38,7 +38,7 @@ export type ProvisioningPlanParameterMap = Readonly<Record<string, string>>;
  * @public
  */
 export class ProvisioningPlanTemplateError extends Error {
-  readonly name = "ProvisioningPlanTemplateError";
+  override readonly name = "ProvisioningPlanTemplateError";
 
   constructor(
     message: string,
